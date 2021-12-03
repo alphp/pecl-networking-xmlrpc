@@ -13,6 +13,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{matrix.version}}
+          extensions: libxml
       - name: phpize
         run: phpize
       - name: configure
