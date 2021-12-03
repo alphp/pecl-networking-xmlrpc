@@ -33,4 +33,4 @@ jobs:
       - name: make
         run: nmake
       - name: test
-        run: nmake test TESTS=tests
+        run: nmake test TESTS="-g FAIL --show-diff tests"
