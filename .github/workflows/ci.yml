@@ -35,4 +35,4 @@ jobs:
       - name: make
         run: nmake
       - name: test
-        run: nmake test TESTS="-g FAIL --show-diff tests"
+        run: nmake test TESTS="-g FAIL,SKIP --show-diff tests"
