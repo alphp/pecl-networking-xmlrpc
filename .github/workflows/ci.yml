@@ -16,11 +16,12 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup PHP
         id: setup-php
-        uses: cmb69/setup-php-sdk@v0.2
+        uses: cmb69/setup-php-sdk@5101ca783972c7c4e75a0b63c62517ae1a6d645b
         with:
           version: ${{matrix.version}}
           arch: ${{matrix.arch}}
           ts: ${{matrix.ts}}
+          deps: [libiconv, libxml2]
       - name: Enable Developer Command Prompt
         uses: ilammy/msvc-dev-cmd@v1
         with:
