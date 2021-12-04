@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup PHP
         id: setup-php
-        uses: cmb69/setup-php-sdk@5101ca783972c7c4e75a0b63c62517ae1a6d645b
+        uses: cmb69/setup-php-sdk@175cd66d3f8ef2596cf36910b2fe3c6fc362a595
         with:
           version: ${{matrix.version}}
           arch: ${{matrix.arch}}
@@ -31,7 +31,7 @@ jobs:
       - name: phpize
         run: phpize
       - name: configure
-        run: configure --with-xmlrpc --with-php-build=deps --with-prefix=${{steps.setup-php.outputs.prefix}}
+        run: configure --with-xmlrpc --with-prefix=${{steps.setup-php.outputs.prefix}}
       - name: make
         run: nmake
       - name: test
