@@ -7,7 +7,7 @@ jobs:
         shell: cmd
     strategy:
       matrix:
-        version: ['8.0', '8.1', '8.2', '8.3']
+        version: ['8.0', '8.1', '8.2', '8.3', '8.4']
         arch: [x64, x86]
         ts: [ts, nts]
     runs-on: windows-latest
@@ -43,7 +43,7 @@ jobs:
       - name: make
         run: nmake
       - name: test
-        run: nmake test TESTS="-g FAIL,SKIP --show-diff tests"
+        run: nmake test TESTS="--show-diff tests"
       - name: Define Module Env
         shell: powershell
         run: |
@@ -66,6 +66,7 @@ jobs:
           if ('8.1' -eq '${{matrix.version}}') { $artifact_name = $artifact_name + '-vs16' }
           if ('8.2' -eq '${{matrix.version}}') { $artifact_name = $artifact_name + '-vs16' }
           if ('8.3' -eq '${{matrix.version}}') { $artifact_name = $artifact_name + '-vs16' }
+          if ('8.4' -eq '${{matrix.version}}') { $artifact_name = $artifact_name + '-vs17' }
 
           if ('x64' -eq '${{matrix.arch}}') { $artifact_name = $artifact_name + '-x64' }
           if ('x86' -eq '${{matrix.arch}}') { $artifact_name = $artifact_name + '-x86' }
